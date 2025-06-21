@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "strict-syntax": "off",
+    "reserved-keywords": "warn" 
+  }
+}

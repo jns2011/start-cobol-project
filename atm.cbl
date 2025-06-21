@@ -1,0 +1,44 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SCREEN-DEMO.
+
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           CONSOLE IS CRT.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  WS-LANGUAGE-CHOICE PIC X(1) VALUE SPACES.
+           88 SPANISH VALUE "1".
+           88 ENGLISH VALUE "2".
+           88 PORTUGUESE VALUE "3".
+
+       01  WS-OPERATION-CHOICE PIC X(1) VALUE SPACES.
+           88 DEPOSITOS VALUE "1".
+           88 TRANSFERENCIAS VALUE "2".
+           88 EXTRACCIONES VALUE "3".
+           88 CONSULTAS VALUE "4".
+           88 FINALIZAR VALUE "5".
+      
+       SCREEN SECTION.
+           COPY "s.cpy".
+           
+       PROCEDURE DIVISION.
+       MAIN-SECTION SECTION
+           PERFORM LANGUAGE-FORM.
+     
+       LANGUAGE-FORM SECTION                      
+           DISPLAY LANGUAGE-SCREEN.
+           ACCEPT LANGUAGE-SCREEN.
+           EVALUATE TRUE
+               WHEN SPANISH
+               WHEN ENGLISH
+               WHEN PORTUGUESE
+                   PERFORM OPERATIONS-SECTION.
+               WHEN OTHER
+           END-EVALUATE.
+       
+       OPERATIONS-FORM SECTION
+           DISPLAY MAIN-SCREEN.
+           ACCEPT MAIN-SCREEN.
